@@ -20,9 +20,7 @@ dj_dict = {
     1: "Nelesan",
     2: "MASHA",
     3: "Tympani",
-    4: "Petermaksi",
-    16: "test DJ",
-    17: "test DJ2"
+    4: "Petermaksi"
 }
 
 pygame.init()
@@ -132,7 +130,7 @@ while running:
             text = next_dj_font.render("now playing: ", True, (255, 255, 255))
             text_rect = text.get_rect(center=(screen_width // 2, screen_height // 2 - 200))
             text2 = dj_font.render(dj_name, True, (255, 255, 255))
-            text_rect2 = text2.get_rect(center=(screen_width // 2, screen_height // 2 - 100))
+            text_rect2 = text2.get_rect(center=(screen_width // 2, screen_height // 2 - 120))
 
             screen.blit(text, text_rect)
             screen.blit(text2, text_rect2)
