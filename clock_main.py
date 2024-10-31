@@ -1,10 +1,13 @@
+from cgitb import reset
+
 import pygame
 import math
+import random
 from datetime import datetime
 
 # configuration
 draw_circle = False
-
+colorchange_on_minute = True
 
 
 pygame.init()
@@ -65,6 +68,22 @@ y_offset = (screen_height - scaled_background.get_height()) // 2
 # Create clock object
 clock = pygame.time.Clock()
 
+current_bg_r = 0
+current_bg_g = 0
+current_bg_b = 0
+
+def calc_bg_color():
+    global current_bg_r, current_bg_g, current_bg_b
+    current_bg_r = random.randint(0, 255)
+    current_bg_g = random.randint(0, 255)
+    current_bg_b = random.randint(0, 255)
+
+def reset_bg_color():
+    global current_bg_r, current_bg_g, current_bg_b
+    current_bg_r = 0
+    current_bg_g = 0
+    current_bg_b = 0
+
 running = True
 while running:
     for event in pygame.event.get():
@@ -74,8 +93,14 @@ while running:
             if event.key == pygame.K_ESCAPE:
                 running = False
 
-    # Fill the screen with black
-    screen.fill((0, 0, 0))
+    # Fill the screen background
+    now = datetime.now()
+    if colorchange_on_minute:
+        if now.second < 3:
+            calc_bg_color()
+        elif now.second == 3:
+            reset_bg_color()
+    screen.fill((current_bg_r, current_bg_g, current_bg_b))
 
     # Draw the scaled background image
     screen.blit(scaled_background, (x_offset, y_offset))
@@ -86,6 +111,6 @@ while running:
     update_clock()
 
     pygame.display.flip()
-    clock.tick(60)  # Limit to 60 FPS
+    clock.tick(5)  # Limit to 60 FPS
 
 pygame.quit()
