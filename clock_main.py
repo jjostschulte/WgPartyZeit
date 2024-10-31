@@ -48,12 +48,12 @@ def update_clock():
     hour_angle = math.radians(((now.hour % 12) / 12) * 360 + (now.minute / 60) * 30 - 90)
 
     # Draw hands
-    draw_hand(hour_angle, clock_radius * 0.5, (0, 0, 255), 15)
-    draw_hand(minute_angle, clock_radius * 0.75, (0, 255, 0), 10)
-    draw_hand(second_angle, clock_radius * 0.9, (255, 0, 0))
+    draw_hand(hour_angle, clock_radius * 0.5, (255, 255, 255), 15)
+    draw_hand(minute_angle, clock_radius * 0.75, (200, 200, 200), 7)
+    draw_hand(second_angle, clock_radius * 0.9, (150, 150, 150))
 
 # Load the background image
-background = pygame.image.load("Dj-names.png")
+background = pygame.image.load("clock-dj-faces.png")
 
 # Scale the background image
 scaled_background = scale_image_to_fit(background, screen_width, screen_height)
