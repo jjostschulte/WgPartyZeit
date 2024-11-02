@@ -20,7 +20,22 @@ dj_dict = {
     1: "Nelesan",
     2: "MASHA",
     3: "Tympani",
-    4: "Petermaksi"
+    4: "Petermaksi",
+    5: "Open Decks",
+    6: "Open Decks",
+    7: "Open Decks",
+    8: "Open Decks",
+    9: "Open Decks",
+    10: "Open Decks",
+    11: "Open Decks",
+    12: "Open Decks",
+    13: "Open Decks",
+    14: "Open Decks",
+    15: "Open Decks",
+    16: "Open Decks",
+    17: "Open Decks",
+    18: "Open Decks",
+    19: "Open Decks"
 }
 
 pygame.init()
